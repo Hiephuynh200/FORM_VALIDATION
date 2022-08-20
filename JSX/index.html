@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React js</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 
+    JSX -> Javascript XML 
+    1. Luôn dùng React.createElement() ? vấn đề? 
+    2. JSX ? live demo
+    3. JSX không phải là HTML 
+        cần có javascript, bable để dùng JSX 
+    4. JSX cà ReactDOM
+
+-->
+
+    <!-- <div id="root"></div> -->
+    <h1>calculated</h1>
+    <input type="text" id=n1><br><br>
+    <input type="text" id=n2>
+    <br><br>
+    <select id="operator">
+        
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+    </select>
+    
+    <input type="text" id="result">
+    <button onclick="myFunct()">submit</button>
+<script > // ngăn chặn sự thực thi của đoạn script
+
+        // const reactCourse = 'ReactJS F8' 
+
+        // const ul =  <ul>
+        //                 <li>JavaScript</li>
+        //                 <li>ReactJS</li>
+        //             </ul>
+
+        // ReactDOM.render(ul, document.getElementById('root'))
+
+        // const courses = [
+        //     {
+        //         name: 'HTML, CSS'
+        //     },
+        //     {
+        //         name: 'Resposive web design'
+        //     },
+        //     {
+        //         name: 'ReactJS'
+        //     }
+        // ]
+
+        // const App = <ul>
+        //     {
+        //         courses.map(course => {
+        //             return <li>{course.name}</li>
+        //         })
+        //     }
+        // </ul>
+
+        // const root = document.getElementById('root')
+        // ReactDOM.render(App, root)
+   function myFunct() {
+    var n1 = document.getElementById('n1').value
+    var n2 = document.getElementById('n2').value
+    var operator = document.getElementById('operator').value
+    var result = 0
+    if(operator == '+') {
+        result = parseInt(n1) + parseInt(n2)
+    } else if(operator == '-') {
+        result = parseInt(n1) - parseInt(n2)
+    } else if(operator == '*') {
+        result = parseInt(n1) * parseInt(n2)
+    } else if(operator == '/') {
+        if(n2 == 0){
+            alert("ko nhap 0")
+        } else {
+            result = parseInt(n1) / parseInt(n2)
+        }
+    }
+     document.getElementById('result').value  = result
+   }
+    </script>
+</body>

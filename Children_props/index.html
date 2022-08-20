@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React js</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .btn {
+            color: red; 
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+    <script type="text/babel">
+        //Spread
+/*
+        function Input ({ lable, ...inputProps }) {
+            return (
+            <div>
+                <lable>{lable}</lable>
+                <input {...inputProps} />
+            </div>
+            )
+        }
+        function App() {
+            return (
+                <div id="container">
+                    <Input
+                        lable = 'Name'
+                        type = 'color'
+                        placeholder = 'enter name'
+                        title = 'day laf input'
+                        onFocus = {() => {
+                            console.log(Math.random())
+                        }}
+                    />
+                </div>
+            )
+        }
+
+        ReactDOM.render( <App />, document.getElementById('root'))
+*/
+
+    ///////////////////////////////////////////////////////////
+ /*  
+   
+    function Button ({ children }) {
+            return (
+                <button>{children}</button>
+            )
+        }
+
+        function App() {
+            return (
+                <div id="container">
+                    <Button>Click on me</Button>
+                </div>
+            )
+        }
+
+        ReactDOM.render( <App />, document.getElementById('root'))
+
+*/
+
+    ///////////////////////////////////////////////////////////
+/* 
+    function List ({ data, children }) {
+            return (
+                <ul>
+                    {data.map((...props) => children(...props))}
+                </ul>
+            )
+        }
+
+        
+        function App() {
+            const cars = ['BMW', 'Honda', 'Mazda']
+            return (
+                <div id="container">
+                    <List data ={cars}>
+                        {(item, index) => <li key={index}>{item}</li>}
+                    </List>
+                </div>
+            )
+        }
+
+        ReactDOM.render( <App />, document.getElementById('root'))
+*/
+        
+
+// bai tap
+
+    function Course({ data, children, title }) {
+        return (
+            <ul>
+                {
+                  data.map((...props) => children(...props))  
+                }
+            </ul>
+        )
+    }
+
+    function App() {
+        const apples = ['iphone', 'ipad', 'macbook']
+        return (
+            <React.Fragment>
+                <Course data = {apples}>
+                    {(item, index) => 
+                        <h1 
+                            className='btn' 
+                            key={index}
+                        >
+                            {item}
+                        </h1>
+                    }
+                </Course>
+               
+            </React.Fragment>
+        )
+    }
+
+    ReactDOM.render( <App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

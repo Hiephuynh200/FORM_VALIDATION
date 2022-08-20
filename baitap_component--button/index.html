@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React js</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        body {
+            background: #0e1538;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        a, .btn {
+            outline: 3px orange solid;
+            padding: 20px 30px;
+            border: none;
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+            display: inline-block;
+            border-radius: 4px;
+            opacity: 0.8;
+            animation: glowing 1500ms infinite;
+           
+        }
+
+        .btn:hover {
+           animation: none;
+           color: black;
+            background-color:#0094FF;
+        }
+
+
+
+        @keyframes glowing {
+            0% {
+                background-color: #004A7F;
+                -webkit-box-shadow: 0 0 3px #004A7F;
+            }
+
+            50% {
+                background-color: #0094FF;
+                -webkit-box-shadow: 0 0 10px #0094FF;
+            }
+
+            100% {
+                background-color: #004A7F;
+                -webkit-box-shadow: 0 0 3px #004A7F;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Button({ title, href, target, className, onClick }) {
+            let Btn = 'button'
+
+            const props = {}
+
+            if (href) {
+                Btn = 'a'
+                props.href = href
+                props.target = target
+            }
+
+            if (className) {
+                props.className = className;
+            }
+
+            if (onClick) {
+                props.onClick = onClick
+            }
+
+            return (
+                <Btn {...props}>{title}</Btn>
+            )
+        }
+        function App() {
+            return (
+                <div id="container">
+                    <Button
+                        title="Click On Me !!!"
+                        className='btn'
+                        href='https://topicanative.edu.vn/tron-bo-bai-tap-thi-tuong-lai-don-tu-co-ban-den-nang-cao-dap-an-chi-tiet/'
+                        onClick={() => alert('Da click')}
+                    />
+                </div>
+            )
+        }
+        ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>

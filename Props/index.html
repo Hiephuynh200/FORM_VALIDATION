@@ -1,0 +1,418 @@
+`````<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React js</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+
+    <!-- 
+        Props
+            React elements 
+                - sử dụng props giốg như với attribute của thẻ html
+                - 2 props class, for => className, htmlFor
+                - phải tuân thủ quy ước có sẵn
+            React components 
+                - sử dụng props giống như đối số cho component
+                - tự do đặt tên props
+                    - đặt theo camelecase
+                    - * có thể bao gồm dấu gách ngang
+            chú ý: 
+                - prop "key" là prop đặc biệt
+                - props cơ bản là đối số của component
+                    => props có thể là bất kì kiểu dữ liệu nào
+                - sử dụng destucturing
+     -->
+
+    <!-- <div id="root"></div>
+    <script type="text/babel">
+
+        function PostItem() {
+            imgae,
+            title,
+            description,
+            published
+            return (
+                <div className="posts-item">
+                    <img src={imgae}
+                        alt={title}
+                    />
+                    <h2 className="post-title">{title}</h2>
+                    <p className="post-desc">{description}</p>
+                    <p className="post-published">{published}</p>
+                </div>
+            )
+        }
+
+        function App() {
+            return (
+                <div id="wrapper">
+                    <PostItem
+                        title="C#(.NET) - Tương tác với..."
+                        imgae="https://files.fullstack.edu.vn/f8-prod/blog_posts/3930/62b7ef8ce02a3.png"
+                        description="Bạn có kiến thức môn lập trình"
+                        published="Một ngày trước "
+                        callback={() => {
+
+                        }}
+                    />
+                    <PostItem
+                        title="C#(.NET) - Tương tác với..."
+                        imgae="https://files.fullstack.edu.vn/f8-prod/blog_posts/3930/62b7ef8ce02a3.png"
+                        description="1Bạn có kiến thức môn lập trình"
+                        published="1Một ngày trước "
+                    />
+                    <PostItem
+                        title="C#(.NET) - Tương tác với..."
+                        imgae="https://files.fullstack.edu.vn/f8-prod/blog_posts/3930/62b7ef8ce02a3.png"
+                        description="2Bạn có kiến thức môn lập trình"
+                        published="2Một ngày trước "
+                    />
+                </div>
+            )
+        }
+    </script>
+        ReactDOM.render(<App />, document.getElementById('root')) -->
+
+    <!-- //////////////////////////////////////////////////////////////// -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        /*  const courses = [
+            {
+                "id": 65,
+                "user_id": 1,
+                "title": "Tổng hợp các sản phẩm của học viên tại F8 👏👏",
+                "slug": "tong-hop-cac-san-pham-cua-hoc-vien-tai-f8",
+                "description": null,
+                "meta_title": "Tổng hợp các sản phẩm của học viên tại F8",
+                "meta_description": "Bài viết này nhằm tổng hợp lại các dự án mà học viên F8 đã hoàn thành và chia sẻ trên nhóm Học lập trình web F8. Các dự án dưới...",
+                "image": "blog_posts/65/6139fe28a9844.png",
+                "thumbnail": "blog_posts/65/6139fe28a9844.png",
+                "min_read": 6,
+                "published_at": "2021-09-09 17:46:12",
+                "is_approved": true,
+                "created_at": "2021-09-09T02:35:13.000000Z",
+                "reactions_count": 785,
+                "image_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/65/6139fe28a9844.png",
+                "thumbnail_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/65/6139fe28a9844.png",
+                "is_bookmark": false,
+                "is_published": true,
+                "user": {
+                    "id": 1,
+                    "username": "son-dang",
+                    "first_name": "Sơn",
+                    "last_name": "Đặng",
+                    "full_name": "Sơn Đặng",
+                    "avatar": "user_avatars/1/623d4b2d95cec.png",
+                    "avatar_url": "https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png",
+                    "cover_url": "",
+                    "is_comment_blocked": false,
+                    "is_blocked": false
+                }
+            },
+            {
+                "id": 279,
+                "user_id": 1,
+                "title": "[Phần 1] Tạo dự án ReactJS với Webpack và Babel",
+                "slug": "phan-1-tao-du-an-reactjs-voi-webpack-va-babel",
+                "description": null,
+                "meta_title": "[Phần 1] Tạo dự án ReactJS với Webpack và Babel",
+                "meta_description": "Tự tạo dự án ReactJS với webpack và babel nhằm mục đích giúp chúng ta hiểu rõ hơn về về cách create-react-app đã tạo ra dự án ReactJS như thế nào và quan...",
+                "image": "blog_posts/279/6153f692d366e.jpg",
+                "thumbnail": "blog_posts/279/6153f6932dcea.jpg",
+                "min_read": 12,
+                "published_at": "2021-09-29 12:16:03",
+                "is_approved": true,
+                "created_at": "2021-09-13T08:14:19.000000Z",
+                "reactions_count": 401,
+                "image_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/279/6153f692d366e.jpg",
+                "thumbnail_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/279/6153f6932dcea.jpg",
+                "is_bookmark": false,
+                "is_published": true,
+                "user": {
+                    "id": 1,
+                    "username": "son-dang",
+                    "first_name": "Sơn",
+                    "last_name": "Đặng",
+                    "full_name": "Sơn Đặng",
+                    "avatar": "user_avatars/1/623d4b2d95cec.png",
+                    "avatar_url": "https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png",
+                    "cover_url": "",
+                    "is_comment_blocked": false,
+                    "is_blocked": false
+                }
+            },
+            {
+                "id": 51,
+                "user_id": 56767,
+                "title": "Ký sự ngày thứ 25 học ở F8 ",
+                "slug": "ky-su-ngay-thu-25-hoc-o-f8-1",
+                "description": null,
+                "meta_title": "Ký sự ngày thứ 25 học ở F8 ",
+                "meta_description": "Hí ae, tôi cũng tên Sơn nhưng mà là newbie còn ông Sơn kia thì trùm rồi :))). Tôi cũng vừa mới đến với lập trình,tôi là sv năm 1....",
+                "image": "blog_posts/51/6139c6453456e.png",
+                "thumbnail": "blog_posts/51/6139c645e1a84.png",
+                "min_read": 1,
+                "published_at": "2021-09-09 15:31:02",
+                "is_approved": true,
+                "created_at": "2021-09-09T01:06:41.000000Z",
+                "reactions_count": 327,
+                "image_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/51/6139c6453456e.png",
+                "thumbnail_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/51/6139c645e1a84.png",
+                "is_bookmark": false,
+                "is_published": true,
+                "user": {
+                    "id": 56767,
+                    "username": "son-son-16",
+                    "first_name": "Sơn",
+                    "last_name": "Sơn",
+                    "full_name": "Sơn Sơn",
+                    "avatar": "https://graph.facebook.com/1642531882604203/picture?width=400&height=400",
+                    "avatar_url": "https://graph.facebook.com/1642531882604203/picture?width=400&height=400",
+                    "cover_url": "",
+                    "is_comment_blocked": false,
+                    "is_blocked": false
+                }
+            },
+            {
+                "id": 107,
+                "user_id": 8,
+                "title": "Các nguồn tài nguyên hữu ích cho 1 front-end developer",
+                "slug": "cac-nguon-tai-nguyen-huu-ich-cho-1-front-end-developer",
+                "description": null,
+                "meta_title": "Các nguồn tài nguyên hữu ích cho 1 front-end developer",
+                "meta_description": null,
+                "image": "blog_posts/107/613a1f3685814.png",
+                "thumbnail": "blog_posts/107/613a1f36eed00.png",
+                "min_read": 2,
+                "published_at": "2021-09-09 21:50:31",
+                "is_approved": true,
+                "created_at": "2021-09-09T06:57:39.000000Z",
+                "reactions_count": 283,
+                "image_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/107/613a1f3685814.png",
+                "thumbnail_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/107/613a1f36eed00.png",
+                "is_bookmark": false,
+                "is_published": true,
+                "user": {
+                    "id": 8,
+                    "username": "duong-vuong",
+                    "first_name": "Vương",
+                    "last_name": "Dương",
+                    "full_name": "Vương Dương",
+                    "avatar": "https://graph.facebook.com/547825429409669/picture?width=400&height=400",
+                    "avatar_url": "https://graph.facebook.com/547825429409669/picture?width=400&height=400",
+                    "cover_url": "",
+                    "is_comment_blocked": false,
+                    "is_blocked": false
+                }
+            },
+            {
+                "id": 677,
+                "user_id": 18159,
+                "title": "Cách đưa code lên GitHub và tạo GitHub Pages",
+                "slug": "cach-dua-code-len-github-va-tao-github-pages",
+                "description": null,
+                "meta_title": "Cách đưa code lên GitHub và tạo GitHub Pages",
+                "meta_description": "Ở bài viết này, mình sẽ hướng dẫn cách để đưa code lên trên Github và tạo Github Pages để xem được trang web mà các bạn đưa lên  như thế nào.",
+                "image": "blog_posts/677/615436b218d0a.png",
+                "thumbnail": "blog_posts/677/615436b284513.png",
+                "min_read": 4,
+                "published_at": "2021-09-29 16:49:38",
+                "is_approved": true,
+                "created_at": "2021-09-29T01:20:27.000000Z",
+                "reactions_count": 283,
+                "image_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/677/615436b218d0a.png",
+                "thumbnail_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/677/615436b284513.png",
+                "is_bookmark": false,
+                "is_published": true,
+                "user": {
+                    "id": 18159,
+                    "username": "vo-minh-kha",
+                    "first_name": "Võ Minh",
+                    "last_name": "Kha",
+                    "full_name": "Võ Minh Kha",
+                    "avatar": "user_avatars/18159/62c30204628ec.png",
+                    "avatar_url": "https://files.fullstack.edu.vn/f8-prod/user_avatars/18159/62c30204628ec.png",
+                    "cover_url": "",
+                    "is_comment_blocked": false,
+                    "is_blocked": false
+                }
+            },
+            {
+                "id": 1671,
+                "user_id": 9143,
+                "title": "Thời gian và Động lực",
+                "slug": "thoi-gian-va-dong-luc",
+                "description": null,
+                "meta_title": "Thời gian và Động lực",
+                "meta_description": "Có lẽ cũng rất lâu rồi mà tôi chưa đụng đến thứ được gọi là \"timetable\". Hay dân dã hơn thì người ta hay gọi là \"Lịch thường nhật\",...",
+                "image": "blog_posts/1671/61b6368983c16.jpg",
+                "thumbnail": "blog_posts/1671/61b6368a3a089.jpg",
+                "min_read": 6,
+                "published_at": "2021-12-13 05:00:00",
+                "is_approved": true,
+                "created_at": "2021-12-12T10:18:10.000000Z",
+                "reactions_count": 262,
+                "image_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b6368983c16.jpg",
+                "thumbnail_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b6368a3a089.jpg",
+                "is_bookmark": false,
+                "is_published": true,
+                "user": {
+                    "id": 9143,
+                    "username": "dong-ngo",
+                    "first_name": "Dong",
+                    "last_name": "Ngo",
+                    "full_name": "Dong Ngo",
+                    "avatar": "user_avatars/9143/6263caafdf588.jpg",
+                    "avatar_url": "https://files.fullstack.edu.vn/f8-prod/user_avatars/9143/6263caafdf588.jpg",
+                    "cover_url": "",
+                    "is_comment_blocked": false,
+                    "is_blocked": false
+                }
+            },
+            {
+                "id": 273,
+                "user_id": 74901,
+                "title": "Tổng hợp tài liệu tự học tiếng anh cơ bản.",
+                "slug": "tong-hop-tai-lieu-tu-hoc-tieng-anh-co-ban",
+                "description": null,
+                "meta_title": "Tổng hợp tài liệu tự học tiếng anh cơ bản.",
+                "meta_description": "Tài liệu tự học tiếng anh full không che. Bạn cần đọc 7749 lần các kiến thức sẽ thấm nhuần vào não bạn.",
+                "image": "blog_posts/273/614043e523ad9.png",
+                "thumbnail": "blog_posts/273/614043e58f413.png",
+                "min_read": 7,
+                "published_at": "2021-09-15 08:30:00",
+                "is_approved": true,
+                "created_at": "2021-09-13T05:09:09.000000Z",
+                "reactions_count": 179,
+                "image_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/273/614043e523ad9.png",
+                "thumbnail_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/273/614043e58f413.png",
+                "is_bookmark": false,
+                "is_published": true,
+                "user": {
+                    "id": 74901,
+                    "username": "le-thanh-trung-5",
+                    "first_name": "Lê Thành",
+                    "last_name": "Trung",
+                    "full_name": "Lê Thành Trung",
+                    "avatar": "user_avatars/74901/626aa252cdb22.jpg",
+                    "avatar_url": "https://files.fullstack.edu.vn/f8-prod/user_avatars/74901/626aa252cdb22.jpg",
+                    "cover_url": "",
+                    "is_comment_blocked": false,
+                    "is_blocked": false
+                }
+            },
+            {
+                "id": 791,
+                "user_id": 64652,
+                "title": "Học như thế nào là phù hợp ?",
+                "slug": "hoc-nhu-the-nao-la-phu-hop",
+                "description": null,
+                "meta_title": "Học như thế nào là phù hợp ?",
+                "meta_description": "Mình xin chia sẽ cách học hiệu qua của mình khi học ở F8 một thời gian !",
+                "image": "blog_posts/791/615de64de7e8f.jpg",
+                "thumbnail": "blog_posts/791/615de64e3f449.jpg",
+                "min_read": 4,
+                "published_at": "2021-10-07 01:09:18",
+                "is_approved": true,
+                "created_at": "2021-10-06T08:04:38.000000Z",
+                "reactions_count": 161,
+                "image_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/791/615de64de7e8f.jpg",
+                "thumbnail_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/791/615de64e3f449.jpg",
+                "is_bookmark": false,
+                "is_published": true,
+                "user": {
+                    "id": 64652,
+                    "username": "tien-pham-ngoc",
+                    "first_name": "Tien Pham",
+                    "last_name": "Ngoc",
+                    "full_name": "Tien Pham Ngoc",
+                    "avatar": "https://avatar-redirect.appspot.com/google/110021593610685676732?size=400",
+                    "avatar_url": "https://avatar-redirect.appspot.com/google/110021593610685676732?size=400",
+                    "cover_url": "",
+                    "is_comment_blocked": false,
+                    "is_blocked": false
+                }
+            }
+        ]
+      
+cach 1
+                const CourseItem = props => (
+                    <div>
+                        <h2>{props.title}</h2>
+                        <img src={props.image}/>
+                        <p>{props.description}</p>
+                    </div>
+                )
+        
+                function App() {
+                    return (
+                        <div id="wrapper">
+                            {courses.map(course => (
+                                 <CourseItem
+                                    key={course.id}
+                                    title={course.title}
+                                    image={course.thumbnail_url}
+                                    description={course.meta_description}
+                                 />
+                            ))}
+                        </div>
+                    )
+                }
+        ReactDOM.render(<App />, document.getElementById('root'))
+*/
+
+    /*    //cach2
+        const CourseItem = ({course}) => (
+            <div>
+                <h2>{course.title}</h2>
+                <img src={course.thumbnail_url} />
+                <p>{course.slug}</p>
+                <p>{course.meta_description}</p>
+            </div>
+        )
+
+        function App() {
+            return (
+                <div id="wrapper">
+                    {courses.map(course => (
+                        <CourseItem
+                            key ={course.id}
+                            course = {course}
+                        />
+                    ))}
+                </div>
+            )
+        }
+        ReactDOM.render(<App />, document.getElementById('root'))
+        */
+
+
+        //DOM Event
+        function App() {
+            return (
+                <div id="wrapper">
+                    <button 
+                        onClick={() => 
+                            console.log(Math.random())
+                        }
+                    >
+                        click me!
+                    </button>
+                </div>
+            )
+        }
+        ReactDOM.render(<App />, document.getElementById('root'))
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React js</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+</head>
+<body>
+    <!--
+        1. React.createElement() -> Reat elemnent
+        2. So sánh với document.createEement() -> DOM element
+        3. Thay đổi: id, className, style...
+        4. Thêm: Text, HTML
+        5. Tạo: 
+            <h1 title= "Hello" class= "heading">Hello Guys</h1>
+        6. Tạo
+            <ul>
+                <li>JavaScript</li>
+                <li>React</li>
+            </ul>
+
+        7. Tạo 
+            <div class="post-item">
+                <h2 title="Hoc React tai f8">hoc reactjs</h2>
+                <p>tu co ban den nang cao</p>
+            </div>
+
+    -->
+    <script>
+        //Bài 7
+        const DivDOM = document.createElement('div');
+        DivDOM.className = 'post-item'
+
+        const h2DOM = document.createElement('h2')
+        h2DOM.title = 'Hoc React tai f8'
+        h2DOM.innerText = 'hoc reactjs'
+        h2DOM.style= 'color: red'
+        const pDOM = document.createElement('p')
+        pDOM.innerText = 'tu co ban den nang cao'
+
+        DivDOM.appendChild(h2DOM)
+        DivDOM.appendChild(pDOM)
+        document.body.appendChild(DivDOM)
+
+        //reactjs
+        const divReact = React.createElement(
+            'div',
+            {
+                className: 'post-item',
+            },
+            React.createElement('h2', {title: 'Hoc React tai f8'}, 'hoc reactjs'),
+            React.createElement('p', 'null', 'tu co ban den nang cao'),
+        )
+        console.log(divReact)
+    </script>
+
+    <!-- //    bài 5
+    //     DOM
+    //     const h1DOM = document.createElement('h1')
+
+    //     h1DOM.title = 'Hello'
+    //     h1DOM.className = 'heading'
+    //     h1DOM.innerText = 'Hello Guys'
+
+    //     document.body.appendChild(h1DOM)
+
+    //     //React
+    //     const h1React = React.createElement('h1', {
+    //         title: 'Hello',
+    //         className: 'heading'
+    //     }, 'hello guys!')
+
+    //     console.dir(h1DOM)
+    //     console.log(h1React) -->
+    <!-- //bài 6
+
+    // const ulDOM = document.createElement('ul') 
+    // ulDOM.id = 'ul-id'
+    // ulDOM.style='color: red; '
+
+    // const liDOM1 = document.createElement('li')     
+    // liDOM1.innerText='javascript'
+    // liDOM1.id = 'li-1'
+
+    // const liDOM2 = document.createElement('li')
+    // liDOM2.innerText='react'
+
+    // ulDOM.appendChild(liDOM1)
+    // ulDOM.appendChild(liDOM2)
+
+    // document.body.appendChild(ulDOM)
+
+    // //react
+    // const ulReact = React.createElement(
+    //     'ul',
+    //     {
+    //         id: 'ul-id',
+    //         style: 'color: red;'
+    //     },
+    //     React.createElement('li', {id: 'li-1'}, 'javascript'),
+    //     React.createElement('li', null, 'react'),
+    // )
+
+    // console.log(ulReact) -->
+    
+   
+</body>
+</html>

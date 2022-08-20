@@ -1,0 +1,47 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;1,200&display=swap');
+
+* {
+    box-sizing:border-box;
+}
+
+body {
+    background-image: url(./img/gabriel-alenius-USXfF_ONUGo-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+   align-items: center;
+    justify-content: center;
+    min-height:100vh;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-top: -5rem;
+}
+
+.countdown-container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.big-text {
+    font-weight: 300;
+    font-size: 6rem;
+    line-height: 1;
+    margin: 1rem 2rem;
+}
+
+.countdown-el {
+    text-align: center;
+}
+
+.countdown-el span {
+    font-size: 1.5rem;
+}
